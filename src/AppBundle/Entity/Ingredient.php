@@ -93,5 +93,14 @@ class Ingredient
     {
         return $this->amount;
     }
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Unit")
+     * @ORM\JoinColumn(name="uni_oid", referencedColumnName="uni_oid")
+     */
+    private $units;
+    /**
+     * @ORM\OneToMany(targetEntity="Npi", mappedBy="ingredients")
+     */
 }
 

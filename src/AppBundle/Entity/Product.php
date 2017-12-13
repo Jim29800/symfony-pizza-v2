@@ -94,19 +94,7 @@ class Product
         return $this->price;
     }
     /**
-     * @ORM\ManyToMany(targetEntity="Ingredient")
-     * @ORM\JoinTable(name="npi_nn_pro_ing",
-     *      joinColumns={@ORM\JoinColumn(name="pro_oid", referencedColumnName="pro_oid")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="ing_oid", referencedColumnName="ing_oid")}
-     *      )
+     * @ORM\OneToMany(targetEntity="Npi", mappedBy="products")
      */
-    private $ingrdients;
-
-    // ...
-
-    public function __construct()
-    {
-        $this->ingrdients = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 }
 
