@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * User
  *
- * @ORM\Table(name="user")
+ * @ORM\Table(name="usr_user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
 class User

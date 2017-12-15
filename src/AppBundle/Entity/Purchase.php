@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Purchase
  *
- * @ORM\Table(name="purchase")
+ * @ORM\Table(name="pur_purchase")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PurchaseRepository")
  */
 class Purchase
