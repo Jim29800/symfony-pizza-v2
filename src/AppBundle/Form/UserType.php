@@ -13,14 +13,14 @@ class UserType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-        ->add('firstName')
-        ->add('lastName')
-        ->add('phoneNumber')
-        ->add('zipCode')
-        ->add('address');
+        $builder->add('firstName')->add('lastName')->add('phoneNumber')->add('zipCode')->add('address');
     }
     
+    public function getParent()
+    {
+        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
+    }
+
     /**
      * {@inheritdoc}
      */
