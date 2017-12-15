@@ -1,27 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Npi</h1>
+    <h1>Productingredient</h1>
 
-<table class="table table-bordered table-striped table-hover">
+    <table>
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ npi.id }}</td>
+                <td>{{ productIngredient.id }}</td>
             </tr>
             <tr>
                 <th>Amount</th>
-                <td>{{ npi.amount }}</td>
+                <td>{{ productIngredient.amount }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('admin_npi_index') }}">Back to the list</a>
+            <a href="{{ path('admin_productingredient_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('admin_npi_edit', { 'id': npi.id }) }}">Edit</a>
+            <a href="{{ path('admin_productingredient_edit', { 'id': productIngredient.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

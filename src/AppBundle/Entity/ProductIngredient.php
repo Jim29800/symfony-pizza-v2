@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Npi
+ * ProductIngredient
  *
  * @ORM\Table(name="npi_nn_pro_ing")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\NpiRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductIngredientRepository")
  */
-class Npi
+class ProductIngredient
 {
     /**
      * @var int
@@ -44,7 +44,7 @@ class Npi
      *
      * @param integer $amount
      *
-     * @return Npi
+     * @return ProductIngredient
      */
     public function setAmount($amount)
     {
@@ -79,7 +79,7 @@ class Npi
      *
      * @param \AppBundle\Entity\Product $product
      *
-     * @return Npi
+     * @return ProductIngredient
      */
     public function setProduct(\AppBundle\Entity\Product $product = null)
     {
@@ -103,7 +103,7 @@ class Npi
      *
      * @param \AppBundle\Entity\Ingredient $ingredient
      *
-     * @return Npi
+     * @return ProductIngredient
      */
     public function setIngredient(\AppBundle\Entity\Ingredient $ingredient = null)
     {

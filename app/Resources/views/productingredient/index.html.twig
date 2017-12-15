@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Productingredients list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Amount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for productIngredient in productIngredients %}
+            <tr>
+                <td><a href="{{ path('admin_productingredient_show', { 'id': productIngredient.id }) }}">{{ productIngredient.id }}</a></td>
+                <td>{{ productIngredient.amount }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_productingredient_show', { 'id': productIngredient.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_productingredient_edit', { 'id': productIngredient.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_productingredient_new') }}">Create a new productIngredient</a>
+        </li>
+    </ul>
+{% endblock %}

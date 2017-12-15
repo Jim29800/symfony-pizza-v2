@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class NpiType extends AbstractType
+class ProductIngredientType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -22,7 +22,7 @@ class NpiType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Npi'
+            'data_class' => 'AppBundle\Entity\ProductIngredient'
         ));
     }
 
@@ -31,7 +31,7 @@ class NpiType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_npi';
+        return 'appbundle_productingredient';
     }
 
 
