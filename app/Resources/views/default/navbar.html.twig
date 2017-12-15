@@ -1,0 +1,28 @@
+{% block navbar %}
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">PIZZZZZZA</a>
+            </div>
+            <ul class="nav navbar-nav">
+                {# <li class="active"><a href="#">Home</a></li> #}
+                <li><a href="{{ path("admin_product_index") }}">Produit</a></li>
+                <li><a href="{{ path("admin_ingredient_index") }}">Ingredient</a></li>
+                <li><a href="{{ path("admin_npi_index") }}">Recette/NPI</a></li>
+                <li><a href="{{ path("admin_purchase_index") }}">Commande/Purchase</a></li>
+                <li><a href="{{ path("admin_purchaseproduct_index") }}">Historique des commandesPurchase Product</a></li>
+                <li><a href="{{ path("admin_unit_index") }}">Unités</a></li>
+                <li><a href="{{ path("admin_user_index") }}">Utilisateur</a></li>
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+                {% if app.user %}
+                    <li><a href="/logout">Déconnexion</a></li>
+                {% else %}
+                    <li><a href="/login">Connexion</a></li>                        
+                {% endif %}
+                
+            </ul> 
+        </div>
+    </nav>
+{% endblock %}

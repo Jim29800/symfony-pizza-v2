@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Purchaseproducts list</h1>
+
+<table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Amount</th>
+                <th>Commande</th>
+                <th>Produit</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for purchaseProduct in purchaseProducts %}
+            <tr>
+                <td><a href="{{ path('admin_purchaseproduct_show', { 'id': purchaseProduct.id }) }}">{{ purchaseProduct.id }}</a></td>
+                <td>{{ purchaseProduct.amount }}</td>
+                <td>{{ purchaseProduct.purchases }}</td>
+                <td>{{ purchaseProduct.products }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_purchaseproduct_show', { 'id': purchaseProduct.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_purchaseproduct_edit', { 'id': purchaseProduct.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_purchaseproduct_new') }}">Create a new purchaseProduct</a>
+        </li>
+    </ul>
+{% endblock %}

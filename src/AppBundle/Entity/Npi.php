@@ -66,11 +66,59 @@ class Npi
      * @ORM\ManyToOne(targetEntity="Product")
      * @ORM\JoinColumn(name="pro_oid", referencedColumnName="pro_oid")
      */
-    private $products;
+    private $product;
     /**
      * @ORM\ManyToOne(targetEntity="Ingredient")
      * @ORM\JoinColumn(name="ing_oid", referencedColumnName="ing_oid")
      */
-    private $ingrdients;
-}
+    private $ingredient;
 
+
+    /**
+     * Set product
+     *
+     * @param \AppBundle\Entity\Product $product
+     *
+     * @return Npi
+     */
+    public function setProduct(\AppBundle\Entity\Product $product = null)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return \AppBundle\Entity\Product
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+
+    /**
+     * Set ingredient
+     *
+     * @param \AppBundle\Entity\Ingredient $ingredient
+     *
+     * @return Npi
+     */
+    public function setIngredient(\AppBundle\Entity\Ingredient $ingredient = null)
+    {
+        $this->ingredient = $ingredient;
+
+        return $this;
+    }
+
+    /**
+     * Get ingredient
+     *
+     * @return \AppBundle\Entity\Ingredient
+     */
+    public function getIngredient()
+    {
+        return $this->ingredient;
+    }
+}

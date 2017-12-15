@@ -37,6 +37,19 @@ class Product
 
 
     /**
+     * @ORM\OneToMany(targetEntity="Npi", mappedBy="products")
+     */
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="PurchaseProduct")
+     */
+
+
+
+
+
+    /**
      * Get id
      *
      * @return int
@@ -93,8 +106,9 @@ class Product
     {
         return $this->price;
     }
-    /**
-     * @ORM\OneToMany(targetEntity="Npi", mappedBy="products")
-     */
+    public function __toString()
+    {
+        return $this->name;
+    }
 }
 

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Units list</h1>
+
+<table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for unit in units %}
+            <tr>
+                <td><a href="{{ path('admin_unit_show', { 'id': unit.id }) }}">{{ unit.id }}</a></td>
+                <td>{{ unit.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_unit_show', { 'id': unit.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_unit_edit', { 'id': unit.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_unit_new') }}">Create a new unit</a>
+        </li>
+    </ul>
+{% endblock %}

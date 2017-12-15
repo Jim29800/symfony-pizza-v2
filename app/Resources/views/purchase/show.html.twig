@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Purchase</h1>
+
+<table class="table table-bordered table-striped table-hover">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ purchase.id }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if purchase.createdAt %}{{ purchase.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Totalprice</th>
+                <td>{{ purchase.totalPrice }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_purchase_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_purchase_edit', { 'id': purchase.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

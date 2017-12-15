@@ -99,19 +99,78 @@ class Purchase
      */
     private $users;
 
+
+
     /**
-     * @ORM\ManyToMany(targetEntity="Product")
-     * @ORM\JoinTable(name="npp_nn_pur_pro",
-     *      joinColumns={@ORM\JoinColumn(name="pur_oid", referencedColumnName="pur_oid")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="pro_oid", referencedColumnName="pro_oid")}
-     *      )
+     * @ORM\OneToMany(targetEntity="PurchaseProduct", mappedBy="purchases")
      */
-    private $products;
+    private $purchaseProducts;
 
 
     public function __construct()
     {
-        $this->products = new \Doctrine\Common\Collections\ArrayCollection();        
+        $this->purchaseProducts = new \Doctrine\Common\Collections\ArrayCollection();        
+    }
+
+    /**
+     * Set users
+     *
+     * @param \AppBundle\Entity\User $users
+     *
+     * @return Purchase
+     */
+    public function setUsers(\AppBundle\Entity\User $users = null)
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    /**
+     * Get users
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * Add product
+     *
+     * @param \AppBundle\Entity\Product $product
+     *
+     * @return Purchase
+     */
+    public function addProduct(\AppBundle\Entity\Product $product)
+    {
+        $this->products[] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param \AppBundle\Entity\Product $product
+     */
+    public function removeProduct(\AppBundle\Entity\Product $product)
+    {
+        $this->products->removeElement($product);
+    }
+
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+    public function __toString()
+    {
+        return "Commande N°".$this->getId().". Commander par ".$this->users->getLastName()." " . $this->users->getFirstName() . " " . $this->getTotalPrice()."€ ";
     }
 }
-

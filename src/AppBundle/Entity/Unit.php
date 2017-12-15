@@ -28,7 +28,11 @@ class Unit
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Ingredient", mappedBy="units")
+     */
 
+    
     /**
      * Get id
      *
@@ -62,8 +66,11 @@ class Unit
     {
         return $this->name;
     }
-    /**
-     * @ORM\OneToMany(targetEntity="Ingredient", mappedBy="units")
-     */
+
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }
 

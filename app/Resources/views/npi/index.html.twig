@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Npis list</h1>
+
+<table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Amount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for npi in npis %}
+            <tr>
+                <td><a href="{{ path('admin_npi_show', { 'id': npi.id }) }}">{{ npi.id }}</a></td>
+                <td>{{ npi.amount }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_npi_show', { 'id': npi.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_npi_edit', { 'id': npi.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_npi_new') }}">Create a new npi</a>
+        </li>
+    </ul>
+{% endblock %}

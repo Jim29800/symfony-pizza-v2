@@ -99,8 +99,34 @@ class Ingredient
      * @ORM\JoinColumn(name="uni_oid", referencedColumnName="uni_oid")
      */
     private $units;
-    /**
-     * @ORM\OneToMany(targetEntity="Npi", mappedBy="ingredients")
-     */
-}
 
+
+    public function __toString()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set units
+     *
+     * @param \AppBundle\Entity\Unit $units
+     *
+     * @return Ingredient
+     */
+    public function setUnits(\AppBundle\Entity\Unit $units = null)
+    {
+        $this->units = $units;
+
+        return $this;
+    }
+
+    /**
+     * Get units
+     *
+     * @return \AppBundle\Entity\Unit
+     */
+    public function getUnits()
+    {
+        return $this->units;
+    }
+}
